@@ -1,10 +1,12 @@
 import {
   faBarsProgress,
+  faBarsStaggered,
   faChevronDown,
   faQuestionCircle,
   faSpoon,
   faUser,
   faUserShield,
+  faXmark,
   faXmarkSquare,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons/faQuestion';
+import { Collapse } from '@material-tailwind/react';
 
 export default function DefaultNav() {
   const navigate = useNavigate();
@@ -72,18 +75,17 @@ export default function DefaultNav() {
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
 
-            <IconButton
+            <button
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden text-gray-800"
-              ripple={false}
               title="Menu"
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
-                <FontAwesomeIcon icon={faXmarkSquare} className="h-[16px]" />
+                <FontAwesomeIcon icon={faXmark} className="h-4]" />
               ) : (
-                <FontAwesomeIcon icon={faBarsProgress} className="h-[16px]" />
+                <FontAwesomeIcon icon={faBarsStaggered} className="h-4]" />
               )}
-            </IconButton>
+            </button>
           </div>
         </div>
         <Collapse open={openNav}>{navList}</Collapse>
