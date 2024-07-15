@@ -34,20 +34,20 @@ function FileEncrypt() {
   return (
     <div className="mb-20">
       <h2 className="font-bold">Enkripsi File Kamu</h2>
-      <div class="flex items-center space-x-4 my-4">
+      <div className="flex items-center space-x-4 my-4">
         <label
-          for="fileInput"
-          class="cursor-pointer bg-gray-500 hover:bg-gray-600 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
+          htmlFor="fileInput"
+          className="cursor-pointer bg-gray-500 hover:bg-gray-600 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
         >
           Pilih File
         </label>
         <input
           type="file"
           id="fileInput"
-          class="hidden"
+          className="hidden"
           onChange={handleFileChange}
         />
-        <span id="fileName" class="text-gray-600">
+        <span id="fileName" className="text-gray-600">
           {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
         </span>
       </div>
@@ -69,10 +69,10 @@ function FileEncrypt() {
           <h3 className="mt-2">File Terenkripsi:</h3>
           <a
             href={encryptedFileUrl}
-            download={`encrypt-${file?.name}.txt`}
+            download={`encrypt-${file?.name?.slice(0, 6)}.txt`}
             className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
-            Download {`encrypt-${file?.name}.txt`}
+            Download {`encrypt-${file?.name?.slice(0, -4)}.txt`}
           </a>
         </div>
       )}

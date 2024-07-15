@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="max-w-3xl mx-auto mt-20 px-5">
+      <div className="max-w-4xl justify-center items-center md:items-start gap-x-10 mx-auto mt-20 px-5 flex flex-col xl:flex-row">
         <FileEncrypt />
         <FileDecrypt />
       </div>
