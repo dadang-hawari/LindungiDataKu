@@ -7,9 +7,10 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="mt-20">Home</div>
-      <FileEncrypt />
-      <FileDecrypt />
+      <div className="max-w-3xl mx-auto mt-20 px-5">
+        <FileEncrypt />
+        <FileDecrypt />
+      </div>
     </>
   );
 }

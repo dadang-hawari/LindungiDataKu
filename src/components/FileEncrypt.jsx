@@ -9,14 +9,15 @@ function FileEncrypt() {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-    console.log('file', file);
   };
 
   const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+    setPassword(e.target.value.trim());
   };
 
   const handleEncrypt = () => {
+    console.log('file', file);
+    if (file === null) return alert('Mohon memilih file terlebih dahulu');
     const reader = new FileReader();
     reader.onload = (e) => {
       const encrypted = CryptoJS.AES.encrypt(
@@ -32,27 +33,46 @@ function FileEncrypt() {
 
   return (
     <div className="mb-20">
-      <h2>Encrypt File</h2>
-      <input type="file" onChange={handleFileChange} />
+      <h2 className="font-bold">Enkripsi File Kamu</h2>
+      <div class="flex items-center space-x-4 my-4">
+        <label
+          for="fileInput"
+          class="cursor-pointer bg-gray-500 hover:bg-gray-600 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
+        >
+          Pilih File
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          class="hidden"
+          onChange={handleFileChange}
+        />
+        <span id="fileName" class="text-gray-600">
+          {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
+        </span>
+      </div>
       <input
         type="password"
         value={password}
         onChange={handlePasswordChange}
-        placeholder="Enter password"
+        placeholder="Berikan Sandi"
+        className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-500 max-w-80 mr-4 w-full"
       />
-      <button onClick={handleEncrypt}>Encrypt File</button>
+      <button
+        onClick={handleEncrypt}
+        className="bg-green-500 text-white p-2 rounded-md"
+      >
+        Enkripsi File
+      </button>
       {encryptedFile && (
         <div>
-          <h3>Encrypted File:</h3>
-          {/* <textarea
-            value={encryptedFile}
-            readOnly
-            rows="10"
-            cols="50"
-          ></textarea>
-          <br /> */}
-          <a href={encryptedFileUrl} download={`encrypt-${file}.txt`}>
-            Download Encrypted File
+          <h3 className="mt-2">File Terenkripsi:</h3>
+          <a
+            href={encryptedFileUrl}
+            download={`encrypt-${file?.name}.txt`}
+            className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
+          >
+            Download {`encrypt-${file?.name}.txt`}
           </a>
         </div>
       )}
