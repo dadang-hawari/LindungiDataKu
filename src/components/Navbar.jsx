@@ -55,7 +55,7 @@ export default function DefaultNav() {
 
   return (
     <div className="w-full">
-      <nav className="block shadow-md backdrop-saturate-200 backdrop-blur-2xl bg-opacity-80 bg-white text-white fixed top-0 z-10 h-max w-full rounded-none py-3 sm:px-6 px-5">
+      <nav className="block shadow-md backdrop-saturate-200 backdrop-blur-2xl bg-opacity-60 bg-white text-white fixed top-0 z-10 h-max w-full rounded-none py-3 sm:px-6 px-5">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link to="/" className="no-underline">
             <h1 className="font-bold text-green-500">

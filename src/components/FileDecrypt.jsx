@@ -39,7 +39,7 @@ function FileDecrypt() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <h2 className="font-bold">Dekripsi FileMu Di Sini</h2>
       <div className="flex items-center space-x-4 my-4">
         <label
