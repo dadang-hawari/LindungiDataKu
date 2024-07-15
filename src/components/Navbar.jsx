@@ -35,7 +35,7 @@ export default function DefaultNav() {
       } md:flex-row md:items-center md:gap-6`}
     >
       <li>
-        <Link className={`${path === '/' && 'font-bold'} text-blue-500`} to="/">
+        <Link className={`${path === '/' && 'font-bold'} text-gray-700`} to="/">
           File Encrypt
         </Link>
       </li>
@@ -44,7 +44,7 @@ export default function DefaultNav() {
         <Link
           className={`${
             path === '/text-encrypt' && ' font-bold'
-          } text-blue-500`}
+          } text-gray-700`}
           to="/text-encrypt"
         >
           Text Encrypt
@@ -73,9 +73,9 @@ export default function DefaultNav() {
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
-                <FontAwesomeIcon icon={faXmark} className="h-4]" />
+                <FontAwesomeIcon icon={faXmark} className="h-4" />
               ) : (
-                <FontAwesomeIcon icon={faBarsStaggered} className="h-4]" />
+                <FontAwesomeIcon icon={faBarsStaggered} className="h-4" />
               )}
             </button>
           </div>
