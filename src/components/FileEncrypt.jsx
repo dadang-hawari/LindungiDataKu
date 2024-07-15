@@ -60,7 +60,7 @@ function FileEncrypt() {
       />
       <button
         onClick={handleEncrypt}
-        className="bg-green-500 text-white p-2 rounded-md"
+        className="bg-green-500 mt-4 text-white p-2 rounded-md"
       >
         Enkripsi File
       </button>
