@@ -60,7 +60,7 @@ export default function DefaultNav() {
           <Link to="/" className="no-underline">
             <h1 className="font-bold text-blue-400">
               <FontAwesomeIcon icon={faUserShield} />
-              LindungiAku
+              <span className="text-sm">LDK</span>
             </h1>
           </Link>
 
