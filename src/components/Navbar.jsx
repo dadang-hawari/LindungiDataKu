@@ -21,7 +21,6 @@ export default function DefaultNav() {
   const path = window.location.pathname;
   const [openNav, setOpenNav] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -29,21 +28,14 @@ export default function DefaultNav() {
     });
   }, []);
 
-  const handleProfileDropdown = () => {
-    setShowProfileDropdown(!showProfileDropdown);
-  };
-
   const navList = (
     <ul
-      className={`mt-2 mb-4 flex text-center flex-col gap-4 lg:mb-0 lg:mt-0 transition-all  ${
+      className={`mt-2 mb-4 flex text-center flex-col gap-4 md:mb-0 md:mt-0 transition-all  ${
         openNav ? 'h-screen' : 'h-fit'
-      } lg:flex-row lg:items-center lg:gap-6`}
+      } md:flex-row md:items-center md:gap-6`}
     >
       <li>
-        <Link
-          className={`${path === '/' ? 'font-medium text-blue-500' : ''}`}
-          to="/"
-        >
+        <Link className={`${path === '/' && 'font-bold'} text-blue-500`} to="/">
           File Encrypt
         </Link>
       </li>
@@ -51,8 +43,8 @@ export default function DefaultNav() {
       <li>
         <Link
           className={`${
-            path === '/text-encrypt' ? 'font-medium text-blue-500' : ''
-          }`}
+            path === '/text-encrypt' && ' font-bold'
+          } text-blue-500`}
           to="/text-encrypt"
         >
           Text Encrypt
@@ -73,10 +65,10 @@ export default function DefaultNav() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="mr-4 hidden lg:block">{navList}</div>
+            <div className="mr-4 hidden md:block">{navList}</div>
 
             <button
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden text-gray-800"
+              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent md:hidden text-gray-800"
               title="Menu"
               onClick={() => setOpenNav(!openNav)}
             >
