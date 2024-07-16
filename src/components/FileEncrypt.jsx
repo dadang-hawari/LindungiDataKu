@@ -45,6 +45,7 @@ function FileEncrypt() {
     if (file === null) {
       return toast('Mohon memilih file terlebih dahulu', {
         className: 'toast-error',
+        toastId: 'toastError',
       });
     }
     const reader = new FileReader();
