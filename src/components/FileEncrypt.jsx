@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFileShield,
-  faShieldAlt,
-  faShieldBlank,
-  faShieldCat,
-  faShieldHalved,
-  faShieldVirus,
-} from '@fortawesome/free-solid-svg-icons';
 
 function FileEncrypt() {
   const [file, setFile] = useState(null);
@@ -17,7 +8,28 @@ function FileEncrypt() {
   const [encryptedFileUrl, setEncryptedFileUrl] = useState('');
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+
+    // Batasi ukuran file maksimal menjadi 20MB (20 * 1024 * 1024 bytes)
+    if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
+      alert('File terlalu besar, ukuran maksimal adalah 20MB.');
+      return;
+    }
+
+    // Validasi khusus untuk file executable
+    const disallowedExecutables = [
+      'application/x-msdownload', // .exe files
+      'application/x-ms-installer', // Windows installer
+      'application/x-ms-application', // ClickOnce application
+      // tambahkan jenis executable lainnya yang tidak diizinkan
+    ];
+
+    if (disallowedExecutables.includes(selectedFile?.type)) {
+      alert('File executable tidak diperbolehkan.');
+      return;
+    }
+
+    setFile(selectedFile);
     setEncryptedFile(null);
   };
 
@@ -26,7 +38,6 @@ function FileEncrypt() {
   };
 
   const handleEncrypt = () => {
-    console.log('file', file);
     if (file === null) return alert('Mohon memilih file terlebih dahulu');
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -42,7 +53,7 @@ function FileEncrypt() {
   };
 
   return (
-    <div className="mb-20 w-full flex flex-row-reverse items-center ">
+    <div className="mb-20 w-full flex flex-row-reverse items-center">
       <div className="w-full">
         <h2 className="font-bold">Enkripsi File Kamu</h2>
         <div className="flex items-center space-x-4 my-4">
@@ -60,6 +71,10 @@ function FileEncrypt() {
           />
           <span id="fileName" className="text-gray-600">
             {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
+            <span className="block text-xs">Max. Ukuran 20Mb</span>
+            <span className="block text-xs">
+              File executable tidak diperbolehkan{' '}
+            </span>
           </span>
         </div>
         <input
@@ -67,11 +82,11 @@ function FileEncrypt() {
           value={password}
           onChange={handlePasswordChange}
           placeholder="Berikan Sandi"
-          className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-500 max-w-80 mr-4 w-full"
+          className="outline-none border border-gray-400 rounded-md p-2 focus:border-blue-500 max-w-80 mr-4 w-full"
         />
         <button
           onClick={handleEncrypt}
-          className="bg-green-500 hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+          className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
         >
           Enkripsi File
         </button>
@@ -81,7 +96,7 @@ function FileEncrypt() {
             <a
               href={encryptedFileUrl}
               download={`encrypt-${file?.name?.split('.')[0]}.txt`}
-              className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
+              className="text-blue-500 border border-blue-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
             >
               Download {`encrypt-${file?.name?.split('.')[0]}.txt`}
             </a>

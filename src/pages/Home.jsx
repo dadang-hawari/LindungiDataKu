@@ -14,7 +14,7 @@ export default function Home() {
       </h1>
       <div
         className="w-full h-[245px] absolute top-0 left-0 -z-50"
-        style={{ backgroundImage: 'url(/assets/svgs/wave_green.svg)' }}
+        style={{ backgroundImage: 'url(/assets/svgs/wave_blue.svg)' }}
       ></div>
 
       <div className="max-w-4xl justify-center items-center  md:items-start gap-x-10 mx-auto mt-32 px-5 flex flex-col xl:flex-row">

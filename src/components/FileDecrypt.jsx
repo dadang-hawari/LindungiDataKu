@@ -57,6 +57,10 @@ function FileDecrypt() {
         />
         <span id="fileName" className="text-gray-600">
           {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
+          <span className="block text-xs">Max. Ukuran 20Mb</span>
+          <span className="block text-xs">
+            File executable tidak diperbolehkan{' '}
+          </span>
         </span>
       </div>
       <input
@@ -64,11 +68,11 @@ function FileDecrypt() {
         value={password}
         onChange={handlePasswordChange}
         placeholder="Masukkan Sandi File"
-        className="outline-none border border-gray-400 rounded-md  p-2 focus:border-blue-500 max-w-80 mr-4 w-full"
+        className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-600 max-w-80 mr-4 w-full"
       />
       <button
         onClick={handleDecrypt}
-        className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+        className="bg-green-600 hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
       >
         Decrypt File
       </button>
@@ -77,8 +81,8 @@ function FileDecrypt() {
           <h3 className="mt-2">Decrypted File:</h3>
           <a
             href={decryptedFile}
-            download={decryptedFile.split('.')[0]}
-            className="text-blue-500 border border-blue-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
+            download={'file-decrypt'}
+            className="text-green-600 border border-green-600 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
             Download {file?.name.split('.')[0]}
           </a>
