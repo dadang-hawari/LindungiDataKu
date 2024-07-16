@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
+import { toast } from 'react-toastify';
 
 function FileEncrypt() {
   const [file, setFile] = useState(null);
@@ -9,7 +10,6 @@ function FileEncrypt() {
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-
     // Batasi ukuran file maksimal menjadi 20MB (20 * 1024 * 1024 bytes)
     if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
       alert('File terlalu besar, ukuran maksimal adalah 20MB.');
@@ -38,7 +38,10 @@ function FileEncrypt() {
   };
 
   const handleEncrypt = () => {
-    if (file === null) return alert('Mohon memilih file terlebih dahulu');
+    if (file === null)
+      return toast('Mohon memilih file terlebih dahulu', {
+        className: 'toast-error',
+      });
     const reader = new FileReader();
     reader.onload = (e) => {
       const encrypted = CryptoJS.AES.encrypt(
@@ -55,7 +58,7 @@ function FileEncrypt() {
   return (
     <div className="mb-20 w-full flex flex-row-reverse items-center">
       <div className="w-full">
-        <h2 className="font-bold">Enkripsi File Kamu</h2>
+        <h2 className="font-bold text-xl text-gray-800">Enkripsi File Kamu</h2>
         <div className="flex items-center space-x-4 my-4">
           <label
             htmlFor="fileInput"
@@ -73,7 +76,7 @@ function FileEncrypt() {
             {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
             <span className="block text-xs">Max. Ukuran 20Mb</span>
             <span className="block text-xs">
-              File executable tidak diperbolehkan{' '}
+              File seperti executable (exe.) dan sebagainya, tidak diperbolehkan{' '}
             </span>
           </span>
         </div>

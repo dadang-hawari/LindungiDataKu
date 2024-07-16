@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
+import { toast } from 'react-toastify';
 
 function FileDecrypt() {
   const [file, setFile] = useState(null);
@@ -24,24 +25,31 @@ function FileDecrypt() {
   };
 
   const handleDecrypt = () => {
+    console.log('file', file);
+    if (file === null) return alert('Mohon memilih file yang akan didecrypt ');
     try {
       const decrypted = CryptoJS.AES.decrypt(
         encryptedFileContent,
         password,
       ).toString(CryptoJS.enc.Latin1);
       if (!/^data:/.test(decrypted)) {
-        alert('Password salah atau file tidak valid.');
-        return;
+        return toast('File belum terenkripsi atau Password salah.', {
+          toastId: 'toast-error',
+          className: 'toast-error',
+        });
       }
       setDecryptedFile(decrypted);
+      console.log('decryptedFile', decryptedFile);
     } catch (e) {
+      console.log('e', e);
       alert('Password salah atau file tidak valid.');
     }
+    setDecryptedFile(null);
   };
 
   return (
     <div className="w-full">
-      <h2 className="font-bold">Dekripsi FileMu Di Sini</h2>
+      <h2 className="font-bold text-xl text-gray-800">Dekripsi File Kamu</h2>
       <div className="flex items-center space-x-4 my-4">
         <label
           htmlFor="fileInputDecrypt"

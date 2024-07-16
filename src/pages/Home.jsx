@@ -4,6 +4,8 @@ import FileEncrypt from '../components/FileEncrypt';
 import FileDecrypt from '../components/FileDecrypt';
 import Footer from '../components/Footer';
 import Information from '../components/Information';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip, ToastContainer } from 'react-toastify';
 
 export default function Home() {
   return (
@@ -23,7 +25,12 @@ export default function Home() {
       </div>
 
       <Information />
-
+      <ToastContainer
+        autoClose={3000}
+        transition={Flip}
+        hideProgressBar
+        className="mt-8"
+      />
       <Footer />
     </>
   );
