@@ -10,74 +10,51 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-center flex-wrap ">
         <div className="flex  items-center text-black text-lg font-bold mt-9 mr-9 "></div>
         <div className="flex w-full flex-col justify-start sm:justify-between gap-5 sm:flex-row flex-wrap  max-w-5xl">
-          <h2 className="w-full xl:w-fit font-bold my-auto">
-            <span className="text-green-500 text-2xl">Lindungi</span>
-            <span className="text-blue-500 text-2xl">DataKu</span>
-          </h2>
-          <div className="mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold text-black mb-4">Navigasi</h3>
-            <p className="my-2">
-              <Link to="/" className="my-2 text-xs">
-                Beranda
-              </Link>
-            </p>
-            <p className="my-2">
-              <Link to="/tentang" className="my-2 text-xs ">
-                Tentang Kami
-              </Link>
-            </p>
-            <p>
-              {' '}
-              <Link to="/sdgs" target="_blank" className="text-xs w-max block">
-                SDGs
-              </Link>
+          <div className="w-full xl:w-fit font-bold my-auto">
+            <div>
+              <span className="text-blue-500 text-2xl">LindungiDataKu</span>
+            </div>
+            <p className="font-normal text-xs">
+              Lindungi data kamu dengan cepat, aman dan gratis.
             </p>
           </div>
+          <div className="flex gap-14">
+            <div className="mb-4 md:mb-0">
+              <h3 className="text-2xl font-bold text-black mb-4">Navigasi</h3>
+              <p className="my-2">
+                <Link to="/" className="my-2 text-xs">
+                  Beranda
+                </Link>
+              </p>
+              <p className="my-2">
+                <Link to="/tentang" className="my-2 text-xs ">
+                  Tentang Kami
+                </Link>
+              </p>
+            </div>
 
-          <div className="mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold text-black mb-4">Credits</h3>
-
-            <p className="my-2">
-              <Link
-                to="https://fontawesome.com/"
+            <div className="flex mt-9 mr-8 gap-x-6">
+              <a
+                href="https://github.com/dadang-hawari"
                 target="_blank"
-                className="my-2 text-xs"
+                className="text-gray-900 transition-all duration-500 hover:text-secondary"
               >
-                FontAwesome
-              </Link>
-            </p>
-            <p className="my-2">
-              <Link
+                <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
+              </a>
+              <a
                 target="_blank"
-                to="https://www.vecteezy.com/free-vector/cloud"
-                className="my-2 text-xs"
+                href="https://www.linkedin.com/in/muh-dadang-hawari"
+                className="text-gray-900 transition-all duration-500 hover:text-secondary"
               >
-                Vecteezy
-              </Link>
-            </p>
-          </div>
-
-          <div className="flex mt-9 mr-8 gap-x-6">
-            <a
-              href="https://github.com/dadang-hawari"
-              target="_blank"
-              className="text-gray-900 transition-all duration-500 hover:text-secondary"
-            >
-              <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
-            </a>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/muh-dadang-hawari"
-              className="text-gray-900 transition-all duration-500 hover:text-secondary"
-            >
-              <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
-            </a>
-            <a
-              href="mailto:support@muhammaddadanghawari@gmail.com"
-              className="text-gray-900 transition-all duration-500  hover:text-secondary"
-            >
-              <FontAwesomeIcon icon={faEnvelope} className="h-6 w-6" />
-            </a>
+                <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
+              </a>
+              <a
+                href="mailto:support@muhammaddadanghawari@gmail.com"
+                className="text-gray-900 transition-all duration-500  hover:text-secondary"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="h-6 w-6" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
