@@ -59,7 +59,7 @@ const Footer = () => {
 
           <div className="flex mt-9 mr-8 gap-x-6">
             <a
-              href="https://github.com/ourair8"
+              href="https://github.com/dadang-hawari"
               target="_blank"
               className="text-gray-900 transition-all duration-500 hover:text-secondary"
             >
@@ -83,8 +83,7 @@ const Footer = () => {
       </div>
       <hr className="my-6 " />
       <span className="text-sm text-gray-500 text-center block mt-6">
-        ©<a href="https://ourair.tech/">LindungiDataKu</a>{' '}
-        {new Date().getFullYear()}, All rights reserved.
+        ©LindungiDataKu {new Date().getFullYear()}, All rights reserved.
       </span>
     </footer>
   );

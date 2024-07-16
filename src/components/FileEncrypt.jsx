@@ -18,6 +18,7 @@ function FileEncrypt() {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    setEncryptedFile(null);
   };
 
   const handlePasswordChange = (e) => {
@@ -70,7 +71,7 @@ function FileEncrypt() {
         />
         <button
           onClick={handleEncrypt}
-          className="bg-green-500 mt-4 text-white p-2 rounded-md"
+          className="bg-green-500 hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
         >
           Enkripsi File
         </button>
@@ -79,10 +80,10 @@ function FileEncrypt() {
             <h3 className="mt-2">File Terenkripsi:</h3>
             <a
               href={encryptedFileUrl}
-              download={`encrypt-${file?.name?.slice(0, 6)}.txt`}
+              download={`encrypt-${file?.name?.split('.')[0]}.txt`}
               className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
             >
-              Download {`encrypt-${file?.name?.slice(0, -4)}.txt`}
+              Download {`encrypt-${file?.name?.split('.')[0]}.txt`}
             </a>
           </div>
         )}

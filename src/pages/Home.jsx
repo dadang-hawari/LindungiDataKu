@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import FileEncrypt from '../components/FileEncrypt';
 import FileDecrypt from '../components/FileDecrypt';
 import Footer from '../components/Footer';
+import Information from '../components/Information';
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
         <FileEncrypt />
         <FileDecrypt />
       </div>
+
+      <Information />
+
       <Footer />
     </>
   );

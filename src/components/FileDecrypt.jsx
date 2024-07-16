@@ -15,7 +15,8 @@ function FileDecrypt() {
       setEncryptedFileContent(e.target.result);
     };
     reader.readAsText(file);
-    console.log('file', file);
+    console.log('filenya', file);
+    setDecryptedFile(null);
   };
 
   const handlePasswordChange = (e) => {
@@ -67,7 +68,7 @@ function FileDecrypt() {
       />
       <button
         onClick={handleDecrypt}
-        className="bg-blue-500 mt-4 text-white p-2 rounded-md"
+        className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
       >
         Decrypt File
       </button>
@@ -76,10 +77,10 @@ function FileDecrypt() {
           <h3 className="mt-2">Decrypted File:</h3>
           <a
             href={decryptedFile}
-            download="decryptedFile"
+            download={decryptedFile.split('.')[0]}
             className="text-blue-500 border border-blue-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
-            Download {`${file?.name}`}
+            Download {file?.name.split('.')[0]}
           </a>
         </div>
       )}
