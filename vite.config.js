@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       manifest: {
         name: 'Lindungi DataKu',
-        short_name: 'LDK',
+        short_name: 'Lindungi DataKu',
         start_url: '/',
         display: 'standalone',
         background_color: '#ffffff',
@@ -16,13 +16,51 @@ export default defineConfig({
         icons: [
           {
             src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '72x72',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '96x96',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '128x128',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '144x144',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '152x152',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
             sizes: '192x192',
             type: 'image/svg+xml',
+            purpose: 'any maskable',
+          },
+          {
+            src: '/assets/svgs/lindungiaku_logo.svg',
+            sizes: '384x384',
+            type: 'image/svg+xml',
+            purpose: 'any maskable',
           },
           {
             src: '/assets/svgs/lindungiaku_logo.svg',
             sizes: '512x512',
             type: 'image/svg+xml',
+            purpose: 'any maskable',
           },
         ],
       },
