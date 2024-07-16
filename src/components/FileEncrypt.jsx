@@ -10,7 +10,6 @@ function FileEncrypt() {
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    // Batasi ukuran file maksimal menjadi 20MB (20 * 1024 * 1024 bytes)
     if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
       return toast('File terlalu besar, ukuran maksimal adalah 20MB.', {
         className: 'toast-error',
@@ -18,12 +17,10 @@ function FileEncrypt() {
       });
     }
 
-    // Validasi khusus untuk file executable
     const disallowedExecutables = [
       'application/x-msdownload', // .exe files
       'application/x-ms-installer', // Windows installer
       'application/x-ms-application', // ClickOnce application
-      // tambahkan jenis executable lainnya yang tidak diizinkan
     ];
 
     if (disallowedExecutables.includes(selectedFile?.type)) {
@@ -48,8 +45,9 @@ function FileEncrypt() {
         toastId: 'toastError',
       });
     }
+
     const reader = new FileReader();
-    reader.onload = async (e) => {
+    reader.onload = (e) => {
       const encrypted = CryptoJS.AES.encrypt(
         e.target.result,
         password,
@@ -58,10 +56,17 @@ function FileEncrypt() {
       const blob = new Blob([encrypted], { type: 'text/plain' });
       setEncryptedFileUrl(URL.createObjectURL(blob));
     };
-    reader.readAsDataURL(file);
+
+    const readFile = new Promise((resolve) => {
+      reader.onloadend = resolve;
+      reader.readAsDataURL(file);
+    });
+
+    await readFile;
+
     toast('File berhasil diencrypt', {
       className: 'toast-success',
-      toastId: 'toastSuccesss',
+      toastId: 'toastSuccess',
     });
   };
 
