@@ -64,31 +64,6 @@ export default defineConfig({
           },
         ],
       },
-      registerType: 'autoUpdate',
-      includeAssets: [
-        'favicon.ico',
-        'robots.txt',
-        'apple-touch-icon.png',
-        'safari-pinned-tab.svg',
-      ],
-      workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: ({ request }) => request.destination === 'image',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'images',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
-              },
-            },
-          },
-        ],
-      },
-      devOptions: {
-        enabled: true,
-      },
     }),
   ],
 });
