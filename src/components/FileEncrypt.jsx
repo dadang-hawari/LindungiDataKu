@@ -42,11 +42,7 @@ function FileEncrypt() {
   };
 
   const handleEncrypt = async () => {
-    toast.loading('Mohon tunggu', {
-      toastId: 'toastLoading',
-    });
     if (file === null) {
-      toast.dismiss('toastLoading');
       return toast('Mohon memilih file terlebih dahulu', {
         className: 'toast-error',
       });
@@ -60,7 +56,6 @@ function FileEncrypt() {
       setEncryptedFile(encrypted);
       const blob = new Blob([encrypted], { type: 'text/plain' });
       setEncryptedFileUrl(URL.createObjectURL(blob));
-      toast.dismiss('toastLoading');
     };
     reader.readAsDataURL(file);
     toast('File berhasil diencrypt', {
