@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { faQuestion } from '@fortawesome/free-solid-svg-icons/faQuestion';
 import { Collapse } from '@material-tailwind/react';
 
 export default function DefaultNav() {
@@ -60,7 +59,9 @@ export default function DefaultNav() {
           <Link to="/" className="no-underline">
             <h1 className="font-bold text-green-500">
               <FontAwesomeIcon icon={faUserShield} />
-              <span className="text-sm">LDK</span>
+              <span className="text-sm">
+                L<span className="text-blue-500">DK</span>
+              </span>
             </h1>
           </Link>
 
