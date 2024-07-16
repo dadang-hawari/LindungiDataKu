@@ -26,7 +26,7 @@ export default function Home() {
 
       <Information />
       <ToastContainer
-        autoClose={3000}
+        autoClose={2500}
         transition={Flip}
         hideProgressBar
         className="mt-8"
