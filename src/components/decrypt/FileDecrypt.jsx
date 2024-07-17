@@ -10,6 +10,7 @@ function FileDecrypt() {
   const [password, setPassword] = useState('');
 
   const handleFileChange = (e) => {
+    if (e.target.files[0] === null) return;
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
     const reader = new FileReader();
@@ -46,11 +47,11 @@ function FileDecrypt() {
 
       setDecryptedFile(decrypted);
     } catch (e) {
-      console.log('e', e);
-      toast('Password salah atau file tidak valid.', {
-        className: 'toast-error',
-        toastId: 'toastError',
-      });
+      if (e == 'Error: Malformed UTF-8 data')
+        toast('File yang dipilih tidak valid.', {
+          className: 'toast-error',
+          toastId: 'toastError',
+        });
       setDecryptedFile(null);
     }
   };
