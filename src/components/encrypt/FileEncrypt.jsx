@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function FileEncrypt() {
   const [file, setFile] = useState(null);
@@ -95,13 +96,15 @@ function FileEncrypt() {
             </span>
           </span>
         </div>
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Berikan Sandi"
-          className="outline-none border border-gray-400 rounded-md p-2 focus:border-blue-500 max-w-80 mr-4 w-full"
-        />
+        <div className="w-full relative">
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Berikan Sandi"
+            className="outline-none border border-gray-400 rounded-md p-2 focus:border-blue-500 max-w-80 mr-4 w-full"
+          />
+        </div>
         <button
           onClick={handleEncrypt}
           className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"

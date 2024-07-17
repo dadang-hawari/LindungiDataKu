@@ -9,14 +9,13 @@ function FileDecrypt() {
   const [password, setPassword] = useState('');
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFile(file);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
     const reader = new FileReader();
     reader.onload = (e) => {
       setEncryptedFileContent(e.target.result);
     };
-    reader.readAsText(file);
-    console.log('filenya', file);
+    reader.readAsText(selectedFile);
     setDecryptedFile(null);
   };
 
@@ -24,27 +23,35 @@ function FileDecrypt() {
     setPassword(e.target.value);
   };
 
-  const handleDecrypt = () => {
-    console.log('file', file);
-    if (file === null) return alert('Mohon memilih file yang akan didecrypt ');
+  const handleDecrypt = async () => {
+    if (file === null) {
+      return toast('Mohon memilih file yang akan didecrypt', {
+        className: 'toast-error',
+        toastId: 'toastError',
+      });
+    }
     try {
       const decrypted = CryptoJS.AES.decrypt(
         encryptedFileContent,
         password,
-      ).toString(CryptoJS.enc.Latin1);
-      if (!/^data:/.test(decrypted)) {
+      ).toString(CryptoJS.enc.Utf8);
+
+      if (!decrypted) {
         return toast('File belum terenkripsi atau Password salah.', {
-          toastId: 'toast-error',
+          toastId: 'toastError',
           className: 'toast-error',
         });
       }
+
       setDecryptedFile(decrypted);
-      console.log('decryptedFile', decryptedFile);
     } catch (e) {
       console.log('e', e);
-      alert('Password salah atau file tidak valid.');
+      toast('Password salah atau file tidak valid.', {
+        className: 'toast-error',
+        toastId: 'toastError',
+      });
+      setDecryptedFile(null);
     }
-    setDecryptedFile(null);
   };
 
   return (
@@ -89,10 +96,10 @@ function FileDecrypt() {
           <h3 className="mt-2">Decrypted File:</h3>
           <a
             href={decryptedFile}
-            download={'file-decrypt'}
+            download={`decrypt`}
             className="text-green-600 border border-green-600 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
-            Download {file?.name.split('.')[0]}
+            Download {`decrypt-${file?.name?.split('.')[0]}.txt`}
           </a>
         </div>
       )}
