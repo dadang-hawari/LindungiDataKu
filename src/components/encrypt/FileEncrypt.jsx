@@ -106,7 +106,7 @@ function FileEncrypt() {
           </span>
         </div>
         <div className="w-full max-w-[360px]">
-          <label htmlFor="passEncrypt" className="relative text-sm">
+          <label className="relative text-sm">
             Berikan secret key (Optional)
             <QuestionMarkPass />
           </label>
