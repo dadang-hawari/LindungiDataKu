@@ -37,7 +37,7 @@ function FileDecrypt() {
       ).toString(CryptoJS.enc.Utf8);
 
       if (!decrypted) {
-        return toast('File belum terenkripsi atau Password salah.', {
+        return toast('File belum terencrypt atau secret key salah.', {
           toastId: 'toastError',
           className: 'toast-error',
         });
@@ -56,7 +56,7 @@ function FileDecrypt() {
 
   return (
     <div className="w-full">
-      <h2 className="font-bold text-xl text-gray-800">Dekripsi File Kamu</h2>
+      <h2 className="font-bold text-xl text-gray-800">Decrypt File Kamu</h2>
       <div className="flex items-center space-x-4 my-4">
         <label
           htmlFor="fileInputDecrypt"
@@ -74,17 +74,19 @@ function FileDecrypt() {
           {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
           <span className="block text-xs">Max. Ukuran 20Mb</span>
           <span className="block text-xs">
-            File executable tidak diperbolehkan{' '}
+            File yang dapat didecrypt hanya file yang telah diencrypt.
           </span>
         </span>
       </div>
-      <input
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        placeholder="Masukkan Sandi File"
-        className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-600 max-w-80 mr-4 w-full"
-      />
+      <div className="relative max-w-[360px] w-full">
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          placeholder="Masukkan Secret Key File (Jika ada)"
+          className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-600 mr-4 w-full"
+        />
+      </div>
       <button
         onClick={handleDecrypt}
         className="bg-green-600 hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"

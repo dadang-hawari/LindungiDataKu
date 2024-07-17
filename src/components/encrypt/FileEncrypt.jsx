@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import QuestionMarkPass from './QuestionMarkPass';
 
 function FileEncrypt() {
   const [file, setFile] = useState(null);
@@ -22,6 +23,13 @@ function FileEncrypt() {
       'application/x-msdownload', // .exe files
       'application/x-ms-installer', // Windows installer
       'application/x-ms-application', // ClickOnce application
+      'application/vnd.microsoft.portable-executable', // Portable Executable (PE) format
+      'application/x-bat', // Batch files
+      'application/x-sh', // Shell script files
+      'application/x-csh', // C shell script files
+      'application/x-msdos-program', // MS-DOS executable
+      'application/x-com', // COM files
+      'application/x-ms-shortcut', // Windows shortcut files (.lnk)
     ];
 
     if (disallowedExecutables.includes(selectedFile?.type)) {
@@ -92,28 +100,35 @@ function FileEncrypt() {
             {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
             <span className="block text-xs">Max. Ukuran 20Mb</span>
             <span className="block text-xs">
-              File seperti executable (exe.) dan sebagainya, tidak diperbolehkan{' '}
+              File seperti executable (exe.) dan sebagainya, tidak
+              diperbolehkan.
             </span>
           </span>
         </div>
-        <div className="w-full relative">
+        <div className="w-full max-w-[360px]">
+          <label htmlFor="passEncrypt" className="relative text-sm">
+            Berikan secret key (Optional)
+            <QuestionMarkPass />
+          </label>
           <input
+            id="passEncrypt"
             type="password"
             value={password}
             onChange={handlePasswordChange}
-            placeholder="Berikan Sandi"
-            className="outline-none border border-gray-400 rounded-md p-2 focus:border-blue-500 max-w-80 mr-4 w-full"
+            placeholder="Secret Key"
+            className="outline-none border block mt-2  border-gray-400 rounded-md p-2 focus:border-blue-500 mr-4 w-full"
           />
         </div>
+
         <button
           onClick={handleEncrypt}
           className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
         >
-          Enkripsi File
+          Encrypt File
         </button>
         {encryptedFile && (
           <div>
-            <h3 className="mt-2">File Terenkripsi:</h3>
+            <h3 className="mt-2">File encrypt:</h3>
             <a
               href={encryptedFileUrl}
               download={`encrypt-${file?.name?.split('.')[0]}.txt`}

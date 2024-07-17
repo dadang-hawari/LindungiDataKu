@@ -18,7 +18,7 @@ const Footer = () => {
               Lindungi data kamu dengan cepat, aman dan gratis.
             </p>
           </div>
-          <div className="flex gap-14">
+          <div className="flex flex-wrap  sm:gap-14">
             <div className="mb-4 md:mb-0">
               <h3 className="text-2xl font-bold text-black mb-4">Navigasi</h3>
               <p className="my-2">
