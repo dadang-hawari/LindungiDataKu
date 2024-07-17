@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
 export default function QuestionMarkPass() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
 
   return (
     <div
@@ -17,7 +17,7 @@ export default function QuestionMarkPass() {
       <div
         className={` ${
           isHovered ? 'opacity-100 ' : 'opacity-0 scale-0 '
-        } transition-all absolute bottom-5 left-0 w-56 overflow-auto bg-blue-400 text-white  shadow-[0_0_5px_0_rgb(0,0,0,0.3)] px-2 rounded-md`}
+        } transition-all absolute bottom-5 right-0 sm:left-0 w-56 overflow-auto bg-blue-400 text-white  shadow-[0_0_5px_0_rgb(0,0,0,0.3)] px-2 rounded-md`}
       >
         <p className="text-[11px] my-2 text-center font-medium">
           Gunakan secret key untuk menjaga data lebih aman, secret key ini
