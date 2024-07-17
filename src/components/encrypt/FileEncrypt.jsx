@@ -81,7 +81,7 @@ function FileEncrypt() {
   return (
     <div className="mb-20 w-full flex flex-row-reverse items-center">
       <div className="w-full">
-        <h2 className="font-bold text-xl text-gray-800">Enkripsi File Kamu</h2>
+        <h2 className="font-bold text-xl text-gray-800">Encrypt File Kamu</h2>
         <div className="flex items-center space-x-4 my-4">
           <label
             htmlFor="fileInput"

@@ -62,7 +62,7 @@ function FileDecrypt() {
       <div className="flex items-center space-x-4 my-4">
         <label
           htmlFor="fileInputDecrypt"
-          className="cursor-pointer bg-gray-500 hover:bg-gray-600 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
+          className="cursor-pointer bg-gray-500 hover:bg-gray-500 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
         >
           Pilih File
         </label>
@@ -72,7 +72,7 @@ function FileDecrypt() {
           className="hidden"
           onChange={handleFileChange}
         />
-        <span id="fileName" className="text-gray-600">
+        <span id="fileName" className="text-gray-500">
           {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
           <span className="block text-xs">Max. Ukuran 20Mb</span>
           <span className="block text-xs">
@@ -90,12 +90,12 @@ function FileDecrypt() {
           value={password}
           onChange={handlePasswordChange}
           placeholder="Secret Key"
-          className="outline-none border block mt-2 border-gray-400 rounded-md  p-2 focus:border-green-600 mr-4 w-full"
+          className="outline-none border block mt-2 border-gray-400 rounded-md  p-2 focus:border-green-500 mr-4 w-full"
         />
       </div>
       <button
         onClick={handleDecrypt}
-        className="bg-green-600  hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+        className="bg-green-500  hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
       >
         Decrypt File
       </button>
@@ -105,7 +105,7 @@ function FileDecrypt() {
           <a
             href={decryptedFile}
             download={`decrypt`}
-            className="text-green-600 border border-green-600 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
+            className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
             Download {`decrypt-${file?.name?.split('.')[0]}.txt`}
           </a>
