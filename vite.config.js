@@ -69,9 +69,13 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: /\.(?:svg)$/,
-            handler: 'CacheFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'svg-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+              },
             },
           },
         ],
