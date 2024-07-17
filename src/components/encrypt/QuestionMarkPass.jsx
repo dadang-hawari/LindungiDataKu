@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
 export default function QuestionMarkPass() {
-  const [isHovered, setIsHovered] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
