@@ -14,7 +14,7 @@ const Footer = () => {
             <div>
               <span className="text-blue-500 text-2xl">LindungiDataKu</span>
             </div>
-            <p className="font-normal text-xs">
+            <p className="font-normal text-xs leading-5 mb-2">
               Lindungi data kamu dengan cepat, aman dan gratis.
             </p>
           </div>

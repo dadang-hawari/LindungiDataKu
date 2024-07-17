@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import QuestionMarkPass from './QuestionMarkPass';
+import QuestionMarkEnc from './QuestionMarkEnc';
 
 function FileEncrypt() {
   const [file, setFile] = useState(null);
@@ -97,7 +96,11 @@ function FileEncrypt() {
             onChange={handleFileChange}
           />
           <span id="fileName" className="text-gray-600">
-            {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
+            {file?.name
+              ? file?.name?.length > 20
+                ? file?.name?.slice(0, 20) + '...'
+                : file?.name
+              : 'Tidak ada file yang dipilih'}
             <span className="block text-xs">Max. Ukuran 20Mb</span>
             <span className="block text-xs">
               File seperti executable (exe.) dan sebagainya, tidak
@@ -107,8 +110,8 @@ function FileEncrypt() {
         </div>
         <div className="w-full max-w-[360px]">
           <label className="relative text-sm">
-            Berikan secret key (Optional)
-            <QuestionMarkPass />
+            Berikan Secret Key (Optional)
+            <QuestionMarkEnc />
           </label>
           <input
             id="passEncrypt"

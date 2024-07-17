@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { toast } from 'react-toastify';
+import QuestionMarkDec from './QuestionMarkDec';
 
 function FileDecrypt() {
   const [file, setFile] = useState(null);
@@ -79,17 +80,21 @@ function FileDecrypt() {
         </span>
       </div>
       <div className="relative max-w-[360px] w-full">
+        <label className="relative text-sm">
+          Secret Key File (Jika ada)
+          <QuestionMarkDec />
+        </label>
         <input
           type="password"
           value={password}
           onChange={handlePasswordChange}
-          placeholder="Masukkan Secret Key File (Jika ada)"
-          className="outline-none border border-gray-400 rounded-md  p-2 focus:border-green-600 mr-4 w-full"
+          placeholder="Secret Key"
+          className="outline-none border block mt-2 border-gray-400 rounded-md  p-2 focus:border-green-600 mr-4 w-full"
         />
       </div>
       <button
         onClick={handleDecrypt}
-        className="bg-green-600 hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+        className="bg-green-600  hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
       >
         Decrypt File
       </button>

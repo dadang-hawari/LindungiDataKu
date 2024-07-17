@@ -2,7 +2,7 @@ import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
-export default function QuestionMarkPass() {
+export default function QuestionMarkDec() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -17,11 +17,11 @@ export default function QuestionMarkPass() {
       <div
         className={` ${
           isHovered ? 'opacity-100 ' : 'opacity-0 scale-0 '
-        } transition-all absolute bottom-5 right-0 sm:left-0 w-56 overflow-auto bg-blue-400 text-white  shadow-[0_0_5px_0_rgb(0,0,0,0.3)] px-2 rounded-md`}
+        } transition-all absolute bottom-5 -right-1 sm:left-0 w-56 overflow-auto bg-blue-400 text-white  shadow-[0_0_5px_0_rgb(0,0,0,0.3)] px-2 rounded-md`}
       >
         <p className="text-[11px] my-2 text-center font-medium">
-          Gunakan secret key untuk menjaga data lebih aman, secret key ini
-          digunakan untuk melakukan decrypt file yang telah diencrypt.
+          Jika file memiliki secret key, silahkan masukkan secret key pada
+          inputan berikut
         </p>
       </div>
     </div>
