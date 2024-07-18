@@ -23,7 +23,7 @@ export default function FileEncryption() {
         autoClose={2500}
         transition={Flip}
         hideProgressBar
-        className="mt-8"
+        className="mt-9"
         pauseOnFocusLoss={false}
       />
       <Footer />

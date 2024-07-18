@@ -23,7 +23,7 @@ export default function About() {
           </div>
         </section>
         <section className="mt-10  max-w-3xl px-4 mx-auto">
-          <div className="w-full border border-gray-300 bg-green-100 px-4 rounded-md py-2">
+          <div className="w-full border border-green-200 bg-green-100 px-4 rounded-md py-2">
             <h2 className="text-gray-900 font-bold ">
               Oleh: Muh. Dadang Hawari
             </h2>

@@ -23,7 +23,7 @@ export default function DefaultNav() {
 
   const navList = (
     <ul
-      className={`mt-2 mb-4 flex text-[13px] font-medium text-center flex-col gap-4 md:mb-0 md:mt-0 transition-all  ${
+      className={`mt-2 mb-4 flex text-[15px] font-medium text-center flex-col gap-4 md:mb-0 md:mt-0 transition-all  ${
         openNav ? 'h-screen' : 'h-fit'
       } md:flex-row md:items-center md:gap-6`}
     >
