@@ -73,7 +73,7 @@ const TextDecrypt = () => {
         placeholder="Teks terdecrypt"
         value={decryptedText}
         readOnly
-        className="block w-full border p-3 outline-none min-h-20 max-h-96 focus:border-gray-500 mt-2 mb-4 rounded-md"
+        className="block w-full border text-sm p-3 outline-none min-h-20 max-h-96 focus:border-gray-500 mt-2 mb-4 rounded-md"
         rows={7}
       />
     </div>
