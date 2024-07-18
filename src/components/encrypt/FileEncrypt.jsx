@@ -109,7 +109,7 @@ function FileEncrypt() {
         </div>
         <div className="w-full max-w-[360px]">
           <label className="relative text-sm">
-            Berikan Secret Key (Optional)
+            Berikan Secret Key (Opsional)
             <QuestionMarkEnc />
           </label>
           <input

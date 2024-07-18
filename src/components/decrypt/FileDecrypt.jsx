@@ -14,7 +14,7 @@ function FileDecrypt() {
     if (selectedFile != decryptedFile) setDecryptedFile(null);
     setFile(selectedFile);
 
-    if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
+    if (selectedFile && selectedFile.size > 30 * 1024 * 1024) {
       return toast('File terlalu besar, ukuran maksimal adalah 30Mb.', {
         className: 'toast-error',
         toastId: 'toastError',

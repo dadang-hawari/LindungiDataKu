@@ -49,6 +49,14 @@ export default function DefaultNav() {
           Text Encrypt
         </Link>
       </li>
+      <li>
+        <Link
+          className={`${path === '/about' && ' font-bold'} text-gray-700`}
+          to="/about"
+        >
+          Text Encrypt
+        </Link>
+      </li>
     </ul>
   );
 
