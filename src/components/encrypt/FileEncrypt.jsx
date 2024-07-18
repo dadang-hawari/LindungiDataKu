@@ -124,7 +124,7 @@ function FileEncrypt() {
 
         <button
           onClick={handleEncrypt}
-          className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+          className="bg-blue-500 hover:bg-blue-600 transition-colors duration-300 mt-4 text-white p-3 rounded-md text-sm"
         >
           Encrypt File
         </button>

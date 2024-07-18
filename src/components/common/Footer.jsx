@@ -5,11 +5,11 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-white p-10">
+    <footer className="bg-white p-10 w-full">
       <hr className="my-6 " />
-      <div className="flex flex-col md:flex-row justify-center flex-wrap ">
+      <div className="flex flex-col sm:flex-row justify-center w-full flex-wrap ">
         <div className="flex  items-center text-black text-lg font-bold mt-9 mr-9 "></div>
-        <div className="flex w-full flex-col justify-start sm:justify-between gap-5 sm:flex-row flex-wrap  max-w-5xl">
+        <div className="flex w-full flex-col  justify-start sm:justify-between gap-5 md:flex-row  max-w-5xl">
           <div className="w-full xl:w-fit font-bold my-auto">
             <div>
               <span className="text-blue-500 text-xl sm:text-2xl">

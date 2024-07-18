@@ -124,7 +124,7 @@ function FileDecrypt() {
       </div>
       <button
         onClick={handleDecrypt}
-        className="bg-green-500  hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-2 rounded-md"
+        className="bg-green-500  hover:bg-green-600 transition-colors duration-300 mt-4 text-white p-3 text-sm rounded-md"
       >
         Decrypt File
       </button>
