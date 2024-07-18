@@ -1,13 +1,7 @@
 import {
-  faBarsProgress,
   faBarsStaggered,
-  faChevronDown,
-  faQuestionCircle,
-  faSpoon,
-  faUser,
   faUserShield,
   faXmark,
-  faXmarkSquare,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -19,22 +13,25 @@ export default function DefaultNav() {
   const navigate = useNavigate();
   const path = window.location.pathname;
   const [openNav, setOpenNav] = useState(false);
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
       window.innerWidth >= 960 && setOpenNav(false);
     });
+    window.scrollTo(0, 0);
   }, []);
 
   const navList = (
     <ul
-      className={`mt-2 mb-4 flex text-xs text-center flex-col gap-4 md:mb-0 md:mt-0 transition-all  ${
+      className={`mt-2 mb-4 flex text-[13px] font-medium text-center flex-col gap-4 md:mb-0 md:mt-0 transition-all  ${
         openNav ? 'h-screen' : 'h-fit'
       } md:flex-row md:items-center md:gap-6`}
     >
       <li>
-        <Link className={`${path === '/' && 'font-bold'} text-gray-700`} to="/">
+        <Link
+          className={`${path === '/' ? 'text-blue-500' : 'text-gray-700'} `}
+          to="/"
+        >
           File Encrypt
         </Link>
       </li>
@@ -42,8 +39,8 @@ export default function DefaultNav() {
       <li>
         <Link
           className={`${
-            path === '/text-encrypt' && ' font-bold'
-          } text-gray-700`}
+            path === '/text-encrypt' ? ' text-blue-500' : 'text-gray-700'
+          } `}
           to="/text-encrypt"
         >
           Text Encrypt
@@ -51,10 +48,12 @@ export default function DefaultNav() {
       </li>
       <li>
         <Link
-          className={`${path === '/about' && ' font-bold'} text-gray-700`}
+          className={`${
+            path === '/about' ? ' text-blue-500' : 'text-gray-700'
+          } font-medium`}
           to="/about"
         >
-          Text Encrypt
+          Tentang
         </Link>
       </li>
     </ul>

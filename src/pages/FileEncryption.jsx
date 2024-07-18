@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Flip, ToastContainer } from 'react-toastify';
 import Hero from '../components/common/Hero';
 
-export default function Home() {
+export default function FileEncryption() {
   return (
     <>
       <Navbar />

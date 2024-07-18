@@ -1,13 +1,18 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home';
+import FileEncryption from './pages/FileEncryption';
 import About from './pages/About';
+import TextEncryption from './pages/TextEncryption';
 
 export default function Route() {
   const router = createBrowserRouter([
     {
       path: `/`,
-      element: <Home />,
+      element: <FileEncryption />,
+    },
+    {
+      path: `/text-encrypt`,
+      element: <TextEncryption />,
     },
     {
       path: `/about`,
