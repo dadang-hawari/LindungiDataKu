@@ -9,7 +9,7 @@ const TextEncrypt = () => {
 
   const handleEncrypt = () => {
     if (!plainText.trim())
-      return toast('Mohon memasukkan teks yang akan diencryp', {
+      return toast('Mohon memasukkan teks yang akan diencrypt', {
         className: 'toast-error',
         toastId: 'toastError',
       });
@@ -25,7 +25,7 @@ const TextEncrypt = () => {
         value={plainText}
         onChange={(e) => setPlainText(e.target.value)}
         rows={2}
-        className="block w-full border p-3 outline-none min-h-20 max-h-80 focus:border-blue-500 mt-2 mb-4 rounded-md"
+        className="block w-full border p-3 outline-none min-h-20 max-h-80 text-sm focus:border-blue-500 mt-2 mb-4 rounded-md"
       />
       <p className="leading-6 text-gray-600 text-sm">
         Secara sederhana, secret key digunakan sebagai kunci, mirip dengan
@@ -61,9 +61,9 @@ const TextEncrypt = () => {
       </label>
       <textarea
         id="hasilEnkripsi"
-        placeholder="Teks terdecrypt"
+        placeholder="Teks terencrypt"
         value={encryptedText}
-        className="block w-full border p-3 outline-none min-h-20 max-h-96 focus:border-gray-500 mt-2 mb-4 rounded-md"
+        className="block w-full text-sm border p-3 outline-none min-h-20 max-h-96 focus:border-gray-500 mt-2 mb-4 rounded-md"
         readOnly
         rows={7}
       />

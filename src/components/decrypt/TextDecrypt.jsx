@@ -28,17 +28,17 @@ const TextDecrypt = () => {
     <div className="w-full border p-3 rounded-xl">
       <h2 className="font-bold text-xl text-gray-800">Decrypt Text</h2>
       <textarea
-        placeholder="Masukkan teks terenkripsi"
+        placeholder="Masukkan teks yang telah terenkripsi"
         value={encrptedText}
         onChange={(e) => setEncText(e.target.value)}
         rows={2}
-        className="block w-full border p-3 outline-none min-h-20 max-h-80 focus:border-green-500 mt-2 mb-4 rounded-md"
+        className="block w-full border p-3 outline-none min-h-20 max-h-80 focus:border-green-500 mt-2 mb-4 text-sm rounded-md"
       />
       <p className="leading-6 text-gray-600 text-sm">
         Secret key digunakan untuk melakukan decrypt dari teks yang telah
         diinputkan. Jika teks yang diencrypt memiliki secret key, maka secret
         key perlu diinputkan agar text dapat di decrypt (diubah kembali menjadi
-        teks asalnya)
+        teks asalnya).
       </p>
       <hr className="w-4/5 mx-auto mb-5 mt-11" />
 
@@ -57,7 +57,7 @@ const TextDecrypt = () => {
           onClick={handleDecrypt}
           className="bg-green-500 hover:bg-green-600 transition-colors duration-300  text-white p-3 rounded-md text-sm block w-full"
         >
-          Decrypt
+          Decrypt Text
         </button>
       </div>
       <hr className="w-4/5 mx-auto my-5" />
@@ -70,7 +70,7 @@ const TextDecrypt = () => {
       </label>
       <textarea
         id="hasilDecrypt"
-        placeholder="Teks terencrypt"
+        placeholder="Teks terdecrypt"
         value={decryptedText}
         readOnly
         className="block w-full border p-3 outline-none min-h-20 max-h-96 focus:border-gray-500 mt-2 mb-4 rounded-md"
