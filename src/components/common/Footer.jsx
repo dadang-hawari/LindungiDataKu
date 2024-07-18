@@ -16,7 +16,7 @@ const Footer = () => {
                 LindungiDataKu
               </span>
             </div>
-            <p className="font-normal text-xs leading-5 mb-2">
+            <p className="font-normal text-xs leading-6 mb-2 mt-1">
               Lindungi data kamu dengan cepat, aman dan gratis.
             </p>
           </div>
@@ -25,14 +25,19 @@ const Footer = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
                 Navigasi
               </h3>
-              <p className="my-2">
-                <Link to="/" className="my-2 text-xs">
-                  Beranda
+              <p className="my-1">
+                <Link to="/" className="my-1 text-xs">
+                  File Encrypt
                 </Link>
               </p>
-              <p className="my-2">
-                <Link to="/tentang" className="my-2 text-xs ">
-                  Tentang Kami
+              <p className="my-1">
+                <Link to="/text-encrypt" className="my-1 text-xs ">
+                  Text Encrypt
+                </Link>
+              </p>
+              <p className="my-1">
+                <Link to="/tentang" className="my-1 text-xs ">
+                  Tentang
                 </Link>
               </p>
             </div>

@@ -9,7 +9,7 @@ const TextEncrypt = () => {
 
   const handleEncrypt = () => {
     if (!plainText.trim())
-      return toast('Mohon memasukkan teks yang akan didecrypt', {
+      return toast('Mohon memasukkan teks yang akan diencryp', {
         className: 'toast-error',
         toastId: 'toastError',
       });
@@ -18,7 +18,7 @@ const TextEncrypt = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full border p-3 rounded-xl">
       <h2 className="font-bold text-xl text-gray-800">Encrypt Text</h2>
       <textarea
         placeholder="Masukkan text yang akan dienkripsi"
@@ -27,7 +27,14 @@ const TextEncrypt = () => {
         rows={2}
         className="block w-full border p-3 outline-none min-h-20 max-h-80 focus:border-blue-500 mt-2 mb-4 rounded-md"
       />
-      <div className="flex flex-col sm:flex-row gap-5 mt-7  items-center sm:gap-x-3">
+      <p className="leading-6 text-gray-600 text-sm">
+        Secara sederhana, secret key digunakan sebagai kunci, mirip dengan
+        password sebelum melakukan decrypt (mengubah ke teks asal) dari sebuah
+        teks yang telah diencrypt. Direkomendasikan untuk membuat teks yang
+        dienkripsi menjadi lebih aman.
+      </p>
+      <hr className="w-4/5 mx-auto my-5" />
+      <div className="flex flex-col sm:flex-row gap-5 mt-2  items-center sm:gap-x-3">
         <label className="block min-w-max font-bold text-gray-800">
           Secret Key
         </label>
@@ -44,10 +51,11 @@ const TextEncrypt = () => {
           Encrypt Text
         </button>
       </div>
+      <hr className="w-4/5 mx-auto my-5" />
 
       <label
         htmlFor="hasilEnkripsi"
-        className="text-gray-800 font-bold mt-7 text-center block"
+        className="text-gray-800 font-bold mt-5 text-center block"
       >
         Hasil Encrypt
       </label>

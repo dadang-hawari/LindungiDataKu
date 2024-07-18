@@ -25,7 +25,7 @@ const TextDecrypt = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full border p-3 rounded-xl">
       <h2 className="font-bold text-xl text-gray-800">Decrypt Text</h2>
       <textarea
         placeholder="Masukkan teks terenkripsi"
@@ -34,7 +34,15 @@ const TextDecrypt = () => {
         rows={2}
         className="block w-full border p-3 outline-none min-h-20 max-h-80 focus:border-green-500 mt-2 mb-4 rounded-md"
       />
-      <div className="flex flex-col sm:flex-row gap-5 mt-7  items-center sm:gap-x-3">
+      <p className="leading-6 text-gray-600 text-sm">
+        Secret key digunakan untuk melakukan decrypt dari teks yang telah
+        diinputkan. Jika teks yang diencrypt memiliki secret key, maka secret
+        key perlu diinputkan agar text dapat di decrypt (diubah kembali menjadi
+        teks asalnya)
+      </p>
+      <hr className="w-4/5 mx-auto mb-5 mt-11" />
+
+      <div className="flex flex-col sm:flex-row gap-5 items-center sm:gap-x-3">
         <label className="block min-w-max font-bold text-gray-800">
           Secret Key
         </label>
@@ -52,11 +60,13 @@ const TextDecrypt = () => {
           Decrypt
         </button>
       </div>
+      <hr className="w-4/5 mx-auto my-5" />
+
       <label
         htmlFor="hasilDecrypt"
-        className="text-gray-800 font-bold mt-7 text-center block"
+        className="text-gray-800 font-bold mt-5 text-center block"
       >
-        Hasil Encrypt
+        Hasil Decrypt
       </label>
       <textarea
         id="hasilDecrypt"

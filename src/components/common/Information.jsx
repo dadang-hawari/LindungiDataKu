@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Information() {
   return (
-    <section className="mt-10  max-w-4xl px-4 mx-auto">
+    <section className=" max-w-4xl px-4 mx-auto -mt-7">
       <div className="w-full border border-gray-300 bg-gray-100 px-4 rounded-md py-2">
         <h2 className="font-bold ">Informasi:</h2>
         <p className="text-xs leading-5 mt-1">
