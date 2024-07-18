@@ -15,7 +15,7 @@ export default function Route() {
       element: <TextEncryption />,
     },
     {
-      path: `/about`,
+      path: `/tentang`,
       element: <About />,
     },
   ]);
