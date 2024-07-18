@@ -10,15 +10,25 @@ function FileDecrypt() {
   const [password, setPassword] = useState('');
 
   const handleFileChange = (e) => {
-    if (e.target.files[0] === null) return;
     const selectedFile = e.target.files[0];
-    setFile(selectedFile);
+    if (selectedFile != decryptedFile) setDecryptedFile(null);
+    if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
+      return toast('File terlalu besar, ukuran maksimal adalah 30Mb.', {
+        className: 'toast-error',
+        toastId: 'toastError',
+      });
+    }
+    if (!selectedFile) {
+      setDecryptedFile(null);
+      setFile(null);
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (e) => {
       setEncryptedFileContent(e.target.result);
     };
     reader.readAsText(selectedFile);
-    setDecryptedFile(null);
   };
 
   const handlePasswordChange = (e) => {
@@ -39,19 +49,31 @@ function FileDecrypt() {
       ).toString(CryptoJS.enc.Utf8);
 
       if (!decrypted) {
-        return toast('File belum terencrypt atau secret key salah.', {
+        return toast('File belum terencrypt', {
           toastId: 'toastError',
           className: 'toast-error',
         });
       }
 
       setDecryptedFile(decrypted);
+      await decrypted;
+      toast('File berhasil didecrypt', {
+        className: 'toast-success',
+        toastId: 'toastSuccess',
+      });
     } catch (e) {
-      if (e == 'Error: Malformed UTF-8 data')
-        toast('File yang dipilih tidak valid.', {
+      console.log('e', e);
+      if (e == 'Error: Malformed UTF-8 data') {
+        toast('Secret Key salah atau File yang dipilih tidak valid .', {
           className: 'toast-error',
           toastId: 'toastError',
         });
+      } else {
+        toast('Terjadi kesalahan saat mendekripsi file.', {
+          className: 'toast-error',
+          toastId: 'toastError',
+        });
+      }
       setDecryptedFile(null);
     }
   };
@@ -62,7 +84,7 @@ function FileDecrypt() {
       <div className="flex items-center space-x-4 my-4">
         <label
           htmlFor="fileInputDecrypt"
-          className="cursor-pointer bg-gray-500 hover:bg-gray-500 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
+          className="cursor-pointer bg-gray-500 hover:bg-gray-600 transition-colors text-white font-medium py-2 max-w-36 w-full text-center rounded"
         >
           Pilih File
         </label>
@@ -73,8 +95,12 @@ function FileDecrypt() {
           onChange={handleFileChange}
         />
         <span id="fileName" className="text-gray-500">
-          {file?.name ? file?.name : 'Tidak ada file yang dipilih'}
-          <span className="block text-xs">Max. Ukuran 20Mb</span>
+          {file?.name
+            ? file?.name?.length > 20
+              ? file?.name?.slice(0, 20) + '...'
+              : file?.name
+            : 'Tidak ada file yang dipilih'}
+          <span className="block text-xs">Max. Ukuran 30 Mb </span>
           <span className="block text-xs">
             File yang dapat didecrypt hanya file yang telah diencrypt.
           </span>
@@ -83,7 +109,11 @@ function FileDecrypt() {
       <div className="relative max-w-[360px] w-full">
         <label className="relative text-sm">
           Secret Key File (Jika ada)
-          <QuestionMarkDec />
+          <QuestionMarkDec
+            text={
+              ' Jika file memiliki secret key, silahkan masukkan secret key pada inputan berikut'
+            }
+          />
         </label>
         <input
           type="password"
@@ -101,13 +131,22 @@ function FileDecrypt() {
       </button>
       {decryptedFile && (
         <div>
-          <h3 className="mt-2">Decrypted File:</h3>
+          <h3 className="mt-2">File Decrypt:</h3>
           <a
             href={decryptedFile}
-            download={`decrypt`}
+            download={`decrypt-${
+              file?.name?.includes('encrypt-')
+                ? file?.name?.slice(8).split('.')[0]
+                : file?.name?.split('.')[0]
+            }`}
             className="text-green-500 border border-green-500 rounded-md p-2 max-w-80 w-full text-center mt-2 block"
           >
-            Download {`decrypt-${file?.name?.split('.')[0]}.txt`}
+            Download{' '}
+            {`decrypt-${
+              file?.name?.includes('encrypt-')
+                ? file?.name?.slice(8).split('.')[0]
+                : file?.name?.split('.')[0]
+            }`}
           </a>
         </div>
       )}

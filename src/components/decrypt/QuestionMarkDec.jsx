@@ -2,7 +2,7 @@ import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
-export default function QuestionMarkDec() {
+export default function QuestionMarkDec({ text }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

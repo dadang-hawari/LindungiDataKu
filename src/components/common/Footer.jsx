@@ -12,15 +12,19 @@ const Footer = () => {
         <div className="flex w-full flex-col justify-start sm:justify-between gap-5 sm:flex-row flex-wrap  max-w-5xl">
           <div className="w-full xl:w-fit font-bold my-auto">
             <div>
-              <span className="text-blue-500 text-2xl">LindungiDataKu</span>
+              <span className="text-blue-500 text-xl sm:text-2xl">
+                LindungiDataKu
+              </span>
             </div>
             <p className="font-normal text-xs leading-5 mb-2">
               Lindungi data kamu dengan cepat, aman dan gratis.
             </p>
           </div>
-          <div className="flex flex-wrap  sm:gap-14">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-2xl font-bold text-black mb-4">Navigasi</h3>
+          <div className="flex flex-col sm:flex-row sm:gap-14">
+            <div className="md:mb-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
+                Navigasi
+              </h3>
               <p className="my-2">
                 <Link to="/" className="my-2 text-xs">
                   Beranda

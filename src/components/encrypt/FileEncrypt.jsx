@@ -12,7 +12,7 @@ function FileEncrypt() {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
-      return toast('File terlalu besar, ukuran maksimal adalah 20MB.', {
+      return toast('File terlalu besar, ukuran maksimal adalah 20Mb.', {
         className: 'toast-error',
         toastId: 'toastError',
       });
@@ -47,14 +47,13 @@ function FileEncrypt() {
   };
 
   const handleEncrypt = async () => {
+    const reader = new FileReader();
     if (file === null) {
       return toast('Mohon memilih file terlebih dahulu', {
         className: 'toast-error',
         toastId: 'toastError',
       });
     }
-
-    const reader = new FileReader();
     reader.onload = (e) => {
       const encrypted = CryptoJS.AES.encrypt(
         e.target.result,
@@ -131,7 +130,7 @@ function FileEncrypt() {
         </button>
         {encryptedFile && (
           <div>
-            <h3 className="mt-2">File encrypt:</h3>
+            <h3 className="mt-2">File Encrypt:</h3>
             <a
               href={encryptedFileUrl}
               download={`encrypt-${file?.name?.split('.')[0]}.txt`}
