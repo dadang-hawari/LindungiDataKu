@@ -12,6 +12,8 @@ function FileDecrypt() {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile != decryptedFile) setDecryptedFile(null);
+    setFile(selectedFile);
+
     if (selectedFile && selectedFile.size > 20 * 1024 * 1024) {
       return toast('File terlalu besar, ukuran maksimal adalah 30Mb.', {
         className: 'toast-error',
@@ -19,8 +21,6 @@ function FileDecrypt() {
       });
     }
     if (!selectedFile) {
-      setDecryptedFile(null);
-      setFile(null);
       return;
     }
 
@@ -62,7 +62,6 @@ function FileDecrypt() {
         toastId: 'toastSuccess',
       });
     } catch (e) {
-      console.log('e', e);
       if (e == 'Error: Malformed UTF-8 data') {
         toast('Secret Key salah atau File yang dipilih tidak valid .', {
           className: 'toast-error',
