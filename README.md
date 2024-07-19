@@ -15,5 +15,6 @@
 - **Vite**
 - **Vite-Plugin-PWA**
 - **TailwindCSS**
+- **Material Tailwind**
 
 
