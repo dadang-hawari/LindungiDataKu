@@ -13,10 +13,12 @@ export default function About() {
             <div className="w-full border border-gray-300 bg-gray-100 px-4 rounded-md py-2">
               <h2 className="font-bold ">Lindungi DataKu</h2>
               <p className="text-xs leading-5 mt-1">
-                LDK (Lindungi DataKu) ditujukan untuk melindungi data-data file
-                seperti docs, ppt, pdf, png, mp3, mp4, dan sebagainya dengan
-                cepat dan aman yang memanfaatkan enkripsi AES (Advanced
-                Encryption Standard) .
+                LindungiDataKu (LDK) ditujukan untuk melindungi data-data file
+                seperti docs, ppt, pdf, png, mp3, mp4, dan jenis file lainnya
+                dengan cepat dan aman yang memanfaatkan enkripsi AES (Advanced
+                Encryption Standard). Website ini dilengkapi dengan fitur PWA
+                (Progressive Web App) yan g membuatnya dapat diinstall dan
+                digunakan secara offline.
               </p>
               <p className="text-xs leading-5 mt-1">
                 Website ini dilengkapi dengan fitur PWA (Progressive Web App)
