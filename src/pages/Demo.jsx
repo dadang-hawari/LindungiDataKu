@@ -7,7 +7,7 @@ export default function Demo() {
   return (
     <>
       <Hero />
-      <div className="w-full h-screen mx-auto mt-36">
+      <div className="w-full h-[700px] mx-auto mt-36">
         <iframe
           src="https://www.youtube.com/embed/ChTaYaJ4DaQ?si=0XDB7E55u1UFEHfd"
           title=""
@@ -17,14 +17,13 @@ export default function Demo() {
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
-
-        <Link
-          to="/"
-          className="block mx-auto w-full px-5 max-w-max bg-blue-500 text-white font-medium text-xl rounded-md py-5 mt-5"
-        >
-          Mulai Encrypt DataKu....
-        </Link>
       </div>
+      <Link
+        to="/"
+        className="block mx-auto w-full px-5 max-w-max bg-blue-500 text-white font-medium text-xl rounded-md py-5 mt-5"
+      >
+        Mulai Encrypt DataKu....
+      </Link>
       <Footer />
     </>
   );
