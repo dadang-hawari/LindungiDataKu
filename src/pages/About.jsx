@@ -14,8 +14,9 @@ export default function About() {
               <h2 className="font-bold ">Lindungi DataKu</h2>
               <p className="text-xs leading-5 mt-1">
                 LDK (Lindungi DataKu) ditujukan untuk melindungi data-data file
-                seperti docs, ppt, pdf, dan sebagainya dengan cepat dan aman
-                yang memanfaatkan enkripsi AES (Advanced Encryption Standard) .
+                seperti docs, ppt, pdf, png, mp3, mp4, dan sebagainya dengan
+                cepat dan aman yang memanfaatkan enkripsi AES (Advanced
+                Encryption Standard) .
               </p>
               <p className="text-xs leading-5 mt-1">
                 Website ini dilengkapi dengan fitur PWA (Progressive Web App)
