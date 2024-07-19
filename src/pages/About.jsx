@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Footer from '../components/common/Footer';
 import DefaultNav from '../components/common/Navbar';
 import React from 'react';
@@ -27,6 +28,14 @@ export default function About() {
               <h2 className="text-gray-900 font-bold ">
                 Oleh: Muh. Dadang Hawari{' '}
                 <span className="font-normal text-xs">(Masyarakat Umum)</span>
+                <Link
+                  className="font-normal text-xs text-blue-500"
+                  target="_blank"
+                  to="/demo"
+                >
+                  {' '}
+                  Demo Website
+                </Link>
               </h2>
               <p className="text-gray-900 font-medium text-xs  leading-5 mt-1 ">
                 {' '}

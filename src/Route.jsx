@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import FileEncryption from './pages/FileEncryption';
 import About from './pages/About';
 import TextEncryption from './pages/TextEncryption';
+import Demo from './pages/Demo';
 
 export default function Route() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export default function Route() {
     {
       path: `/tentang`,
       element: <About />,
+    },
+    {
+      path: `/demo`,
+      element: <Demo />,
     },
   ]);
   return <RouterProvider router={router} />;

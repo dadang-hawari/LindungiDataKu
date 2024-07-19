@@ -49,9 +49,9 @@ export default function DefaultNav() {
       <li>
         <Link
           className={`${
-            path === '/about' ? ' text-blue-500' : 'text-gray-700'
+            path === '/tentang' ? ' text-blue-500' : 'text-gray-700'
           } font-medium`}
-          to="/about"
+          to="/tentang"
         >
           Tentang
         </Link>
